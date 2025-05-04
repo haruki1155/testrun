@@ -1,0 +1,288 @@
+  :root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}* 
+
+/* CSS: Apply fade effect */
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+body.fade-in {
+  opacity: 1;
+}
+
+{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+   font-family: 'Albert Sans', sans-serif;
+      background-color: #0A0F0B;
+      
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #6af064;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid #6af064;
+      color: #6af064;
+      transition: background-color 0.3s;
+    }
+
+    nav a.active {
+      background-color: #6af064;
+      color: #0A0F0B;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background-color: #6af064;
+      color: #0A0F0B;
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+	  margin-top: 5rem;
+	  margin-left: 5rem;
+	  margin-right: 5rem;
+      padding: 5rem;
+      align-items: center;
+      justify-content: center;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      color: black;
+    }
+
+.profile-pic {
+
+  width: clamp(150px, 100vw, 280px); /* min 150px, max 280px, scales with screen */
+  aspect-ratio: 1 / 1; /* maintain perfect circle */
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+
+  /* Dynamically offset half its height upward */
+  margin-top: calc(clamp(150px, 25vw, 280px) / -2);
+  margin-bottom: 5rem;
+}
+.profile-pic img {
+	 background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-05-01/QsqsTFiLOj.png);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-pic {
+  width: clamp(150px, 25vw, 420px);
+}
+
+
+
+    .text-content {
+      max-width: 600px;
+      margin-left: 22rem;
+	  margin-top: -22rem;
+	  
+    }
+.text-content h1,
+.text-content p {
+  color: #ccc;
+  transition: all 0.3s ease-in-out;
+}
+
+.text-content:hover h1,
+.text-content:hover p {
+  color: #39ff14;
+ text-shadow: 0 0 2px #39ff14, 0 0 4px #39ff14;
+
+}
+
+    .text-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+	  font-family: Albert Sans, var(--default-font-family);
+	  color:#58bf63;
+    }
+
+    .text-content p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+		color:#58bf63;
+    }
+
+  
+
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .text-content {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      nav {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .text-content h1 {
+        font-size: 1.5rem;
+      }
+
+      .text-content p {
+        font-size: 1rem;
+      }
+
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+      }
+    }
+	.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@keyframes fallIn {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.profile-pic.animated {
+  animation: fallIn 1s ease-out forwards;
+}
+
+.text-content.animated {
+  animation: slideRight 1s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0; /* ensure it’s hidden initially before animation */
+}
+#water-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.spaceship {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 100px;
+  animation: float 4s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.orbit-container {
+  position: relative;
+  width: 200px; /* Adjust based on your image size */
+  height: 200px;
+  margin: auto;
+}
+
+.profile-pic img {
+  width: 100%;
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+}
+
+.cursor-follower {
+  position: absolute;
+  width: 50px;  /* Adjust based on your spaceship size */
+  height: 50px;
+  pointer-events: none;  /* Prevents blocking clicks */
+  transition: transform 0.05s linear; /* Faster response */
+  z-index: 1000;
+}
+
+.cursor-follower img {
+  width: 100%;
+  filter: drop-shadow(0 0 5px #39ff14); /* Neon glow */
+}
+
+
+
